@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "node-easy-cert": "^1.3.3"
+  }
+}
