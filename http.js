@@ -2,12 +2,13 @@ const http = require('http');
 const url = require('url');
 
 let httpMitmProxy = new http.Server();
-let port = 8879;
+let port = 8878;
 httpMitmProxy.listen(port, () => {
     console.log(`HTTP中间人代理启动成功，端口：${port}`);
 });
 // 代理接收客户端的转发请求
 httpMitmProxy.on('request', (req, res) => {
+    console.log(`request: ${req.url}`);
     // 解析客户端请求
     var urlObject = url.parse(req.url);
     let options =  {

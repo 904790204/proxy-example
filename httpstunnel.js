@@ -23,6 +23,7 @@ httpTunnel.on('error', (e) => {
 httpTunnel.on('connect', (req, cltSocket, head) => {
   var srvUrl = url.parse(`http://${req.url}`);
   console.log(`CONNECT ${srvUrl.hostname}:${srvUrl.port}`);
+  // console.log(srvUrl);
   var srvSocket = net.connect(srvUrl.port, srvUrl.hostname, () => {
     cltSocket.write('HTTP/1.1 200 Connection Established\r\n' +
       'Proxy-agent: MITM-proxy\r\n' +
